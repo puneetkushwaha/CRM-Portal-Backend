@@ -4,14 +4,8 @@ const Leave = require('../models/Leave');
 const mongoose = require('mongoose');
 const { escapeRegex } = require('../utils/securityUtils');
 
-// Try to import InternProfile, but don't fail if it doesn't exist
-let InternProfile;
-try {
-  InternProfile = require('../models/InternProfile');
-} catch (e) {
-  InternProfile = null;
-  console.log('InternProfile model not found - intern features will be limited');
-}
+// Intern data has been merged into the User model
+const InternProfile = null;
 
 // ==================== DASHBOARD ====================
 exports.getDashboard = async (req, res) => {

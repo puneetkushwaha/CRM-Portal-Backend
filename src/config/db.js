@@ -59,8 +59,9 @@ class DatabaseConnection {
             this.connectionStats.connects++;
             
             // Log connection details
-            console.log(`✅ MongoDB Connected: ${conn.connection.host}:${conn.connection.port}`);
-            console.log(`📊 Database: ${conn.connection.name}`);
+            const { host, port, name } = conn.connection;
+            console.log(`✅ MongoDB Connected: ${host}:${port}`);
+            console.log(`📊 Database: ${name}`);
             console.log(`🔗 Connection Pool: ${DB_CONFIG.minPoolSize}-${DB_CONFIG.maxPoolSize}`);
             
             // Setup event handlers

@@ -720,7 +720,6 @@ const productSchema = new mongoose.Schema({
 productSchema.index({ name: 'text', description: 'text' });
 productSchema.index({ category: 1 });
 productSchema.index({ isActive: 1 });
-productSchema.index({ code: 1 });
 
 // Auto-generate product code
 productSchema.pre('save', async function(next) {
@@ -896,7 +895,6 @@ const quoteSchema = new mongoose.Schema({
 
 // Indexes
 quoteSchema.index({ owner: 1, status: 1 });
-quoteSchema.index({ quoteNumber: 1 });
 quoteSchema.index({ deal: 1 });
 quoteSchema.index({ contact: 1 });
 quoteSchema.index({ createdAt: -1 });
