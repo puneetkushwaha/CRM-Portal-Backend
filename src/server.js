@@ -71,7 +71,7 @@ connectDB();
 // ==================== MIDDLEWARE ====================
 
 // Enable CORS for frontend
-const allowedOrigins = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : ["http://localhost:5173"];
+const allowedOrigins = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',').map(url => url.trim()) : ["http://localhost:5173"];
 
 app.use(cors({
     origin: function (origin, callback) {
