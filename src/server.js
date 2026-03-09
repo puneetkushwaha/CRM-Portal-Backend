@@ -41,7 +41,7 @@ const server = http.createServer(app);
 // Initialize Socket.io
 const io = socketIo(server, {
     cors: {
-        origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : "http://localhost:5173",
+        origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',').map(url => url.trim()) : "http://localhost:5173",
         methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
         credentials: true
     }
